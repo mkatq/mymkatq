@@ -377,6 +377,54 @@ body.dark-theme {
   color: #fff;
 }
 
+/* ===== DARK MODE: BORDERLESS CARDS ===== */
+
+body.dark-theme .project-card,
+body.dark-theme .education-card,
+body.dark-theme .contact-form,
+body.dark-theme .skill-card,
+body.dark-theme .cert-card {
+  background-color: #2e2e2e;
+  color: #fff;
+  border: none;               /* ❌ no borders */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); /* subtle depth */
+}
+
+/* Text */
+body.dark-theme .project-card p,
+body.dark-theme .education-card p,
+body.dark-theme .skill-card p,
+body.dark-theme .cert-card p,
+body.dark-theme .contact-form label {
+  color: #ddd;
+}
+
+/* Headings */
+body.dark-theme .project-card h3,
+body.dark-theme .education-card h3,
+body.dark-theme .cert-card h3 {
+  color: #fff;
+}
+
+/* Images (optional – no borders too) */
+body.dark-theme .project-card img,
+body.dark-theme .education-card img,
+body.dark-theme .cert-card img {
+  border: none;
+}
+
+.navbar.dark-theme {
+  backdrop-filter: blur(5px); /* Apply blur effect */
+}
+
+.project-card.dark-theme,
+.education-card.dark-theme,
+.contact-form.dark-theme,
+.skill-card.dark-theme {
+  background-color: #2e2e2e;
+  border: 1px solid #555555;
+}
+
 .navbar.dark-theme {
   backdrop-filter: blur(5px); /* Apply blur effect */
 }
