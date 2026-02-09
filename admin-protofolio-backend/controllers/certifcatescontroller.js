@@ -2,15 +2,15 @@ const Certificate = require('../models/certification');
 
 // certifcatescontroller.js
 
-// Get all certificates
 exports.getAllCertificates = async (req, res) => {
-    try {
-        const certificates = await Certificate.find();
-        res.status(200).json(certificates);
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
+  try {
+    const certificates = await Certificate.find().sort({ updatedAt: -1 });
+    res.status(200).json(certificates);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 };
+
 
 // Get certificate by ID
 exports.getCertificateById = async (req, res) => {
