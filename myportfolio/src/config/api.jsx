@@ -1,5 +1,5 @@
 // config/api.jsx
-const API_BASE_URL = "http://130.110.122.204:3000/api"; 
+const API_BASE_URL = "https://mesharialtawfiq.com/api"; 
 
 export async function apiFetch(endpoint) {
   const url = `${API_BASE_URL}${endpoint}`;

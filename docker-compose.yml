@@ -1,8 +1,26 @@
+version: '3.8'
+
 services:
-  frontend:
-    build: ./myportfolio
+  nginx:
+    image: nginx:latest
+    container_name: nginx
     ports:
       - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - /etc/letsencrypt/live/mesharialtawfiq.com:/etc/letsencrypt/live/mesharialtawfiq.com
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - app-network
+
+  frontend:
+    build: ./myportfolio
+    container_name: frontend
+    expose:
+      - "80"
     depends_on:
       - backend
     networks:
@@ -10,8 +28,10 @@ services:
 
   backend:
     build: ./admin-protofolio-backend
-    ports:
-      - "3000:3000"
+    container_name: backend
+    working_dir: /app
+    expose:
+      - "3000"
     depends_on:
       - mongo
     networks:
@@ -19,6 +39,7 @@ services:
 
   mongo:
     image: mongo:latest
+    container_name: mongo
     ports:
       - "27017:27017"
     volumes:
@@ -29,7 +50,6 @@ services:
 volumes:
   mongo_data:
     external: true
-
 
 networks:
   app-network:
