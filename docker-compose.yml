@@ -9,7 +9,7 @@ services:
       - "443:443"
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
-      - /etc/letsencrypt/live/mesharialtawfiq.com:/etc/letsencrypt/live/mesharialtawfiq.com
+      - /etc/letsencrypt:/etc/letsencrypt:ro
     depends_on:
       - frontend
       - backend
