@@ -29,7 +29,7 @@ const About = () => {
 
   return (
     <section id="about" style={{ paddingTop: "100px", textAlign: "center" }}>
-      <div className="about1" style={{ maxWidth: "700px", margin: "0 auto" }}>
+      <div className="about1">
         <h1>{about.description}</h1>
         {/* You can uncomment these if needed */}
         {/* <p>Email: {about.email}</p>
